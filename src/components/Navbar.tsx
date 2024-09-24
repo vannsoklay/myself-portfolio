@@ -13,12 +13,12 @@ export const Navbar = () => {
 
                 <NavbarContent className="hidden sm:flex gap-8 font-semibold" justify="center">
                     <NavbarItem isActive={pathname == "/"}>
-                        <Link color="foreground" href="/" className={`text-black ${ pathname == "/" && 'font-semibold text-gray-500' }`}>
+                        <Link color="foreground" href="/" className={`text-gray-500 ${ pathname == "/" && 'font-semibold text-black' }`}>
                             Home
                         </Link>
                     </NavbarItem>
                         <NavbarItem isActive={pathname == "/projects"}>
-                            <Link color="foreground" href="/projects" className={`text-black ${ pathname == "/projects" && 'font-semibold text-gray-500' }`}>
+                            <Link color="foreground" href="/projects" className={`text-gray-500 ${ pathname == "/projects" && 'font-semibold text-black' }`}>
                             Projects
                         </Link>
                     </NavbarItem>

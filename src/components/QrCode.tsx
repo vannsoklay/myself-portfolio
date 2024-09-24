@@ -3,9 +3,9 @@ import { Link as MyLink, Modal, ModalBody, ModalContent, ModalFooter, ModalHeade
 export const QrCode = ({ qr_name, isOpen, onOpenChange }: { qr_name: string | null, isOpen: boolean, onOpenChange: () => void }) => {
 
     const qr_code = [
-        { qr_name: "facebook", qr_code: null, link: "https://web.facebook.com/soklay512"},
-        { qr_name: "github", qr_code: null, link: "https://github.com/vannsoklay"},
-        { qr_name: "instagram", qr_code: "/qr/ins_vann_soklay_qr.png", link: "https://www.instagram.com/vann_soklay"}
+        { qr_name: "facebook", qr_code: null, link: "https://web.facebook.com/soklay512" },
+        { qr_name: "github", qr_code: null, link: "https://github.com/vannsoklay" },
+        { qr_name: "instagram", qr_code: "/qr/ins_vann_soklay_qr.png", link: "https://www.instagram.com/vann_soklay" }
     ]
 
     const qr = qr_code.find((q) => q.qr_name === qr_name);
@@ -27,7 +27,7 @@ export const QrCode = ({ qr_name, isOpen, onOpenChange }: { qr_name: string | nu
                         </ModalBody>
                         <ModalFooter>
                             <MyLink isExternal href={qr?.link} color="primary" onPress={onClose} className="w-full flex justify-center bg-primary text-white rounded-xl py-3" size="lg">
-                                Go
+                                Visit
                             </MyLink>
                         </ModalFooter>
                     </>
