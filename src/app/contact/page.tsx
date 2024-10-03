@@ -29,7 +29,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-10 py-12 relative">
+    <div className="min-h-screen flex items-center justify-center pb-10 relative">
       {/* Background image with blur effect */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
