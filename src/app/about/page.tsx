@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card, Chip, Image } from '@nextui-org/react'
+import { Avatar, Card, Chip, Image } from '@nextui-org/react'
 
 const certificates = [
     { name: 'React Developer Certification', issuer: 'React Training', year: 2022, image: '/placeholder.svg?height=200&width=300' },
@@ -9,18 +9,44 @@ const certificates = [
     { name: 'Google Cloud Professional Developer', issuer: 'Google Cloud', year: 2023, image: '/placeholder.svg?height=200&width=300' },
 ]
 
+// const experiences = [
+//     { title: 'Senior Frontend Developer', company: 'Tech Innovators Inc.', period: '2021 - Present', description: 'Lead developer for multiple high-traffic web applications.' },
+//     { title: 'Full Stack Developer', company: 'Digital Solutions Ltd.', period: '2018 - 2021', description: 'Developed and maintained various client projects using React and Node.js.' },
+//     { title: 'Junior Web Developer', company: 'StartUp Ventures', period: '2016 - 2018', description: 'Assisted in the development of responsive websites and web applications.' },
+// ]
+
 const experiences = [
-    { title: 'Senior Frontend Developer', company: 'Tech Innovators Inc.', period: '2021 - Present', description: 'Lead developer for multiple high-traffic web applications.' },
-    { title: 'Full Stack Developer', company: 'Digital Solutions Ltd.', period: '2018 - 2021', description: 'Developed and maintained various client projects using React and Node.js.' },
-    { title: 'Junior Web Developer', company: 'StartUp Ventures', period: '2016 - 2018', description: 'Assisted in the development of responsive websites and web applications.' },
-]
+    {
+        title: 'Full Stack Developer',
+        company: 'KOOMPI, Co., ltd.',
+        period: '2023 - Present',
+        description: 'Developed the backend using Rust for high-performance API services and integrated it with Next.js for the client-side. Focused on optimizing server-side rendering and API communication.',
+        detail: 'Riverbase is a scalable e-commerce platform designed to offer a comprehensive online shopping experience for both customers and merchants. It provides robust functionalities to handle product listings, orders, payments, and inventory management. The platform is built to support various features tailored for smooth, secure, and efficient transactions, and integrates with third-party services to expand its capabilities',
+        technologies: ['Rust', 'Next.js', 'Restful API', 'MongoDB', 'Graphql', 'SSO DID']
+    },
+    {
+        title: 'Backend Developer',
+        company: 'KOOMPI, Co., ltd.',
+        period: '2022 - 2023',
+        description: 'Built robust API services and managed management on for school system and e-commerce.',
+        technologies: ['Node.js', 'Rust', 'API Development', 'Graphql']
+    },
+    {
+        title: 'Intership Developer',
+        company: 'Startup Company',
+        period: '2020 - 2021',
+        description: 'Developed on backend with laravel working on project Recruitment.',
+        technologies: ['PHP', 'Vue', 'Restful API']
+    }
+];
+
 
 const education = [
-    { degree: 'Master of Science in Computer Science', institution: 'Tech University', year: '2020', description: 'Specialized in Artificial Intelligence and Machine Learning', certificate: 'https://www.cadt.edu.kh/wp-content/uploads/2021/11/NIPTICT-National-Institute-Officially-Rebranded-to-Cambodia-Academy-of-Digital-Technology-CADT-4.jpg' },
+    { degree: 'Bachelor of Science in Computer Science', institution: 'Tech University', year: '2019', description: 'Specialized in Computer Science', certificate: 'https://www.cadt.edu.kh/wp-content/uploads/2021/11/NIPTICT-National-Institute-Officially-Rebranded-to-Cambodia-Academy-of-Digital-Technology-CADT-4.jpg' },
 ]
 
 const skills = [
-    'React', 'Next.js', 'TypeScript', 'Node.js', 'GraphQL', 'AWS', 'Docker', 'CI/CD', 'Jest', 'Cypress'
+    'React', 'Next.js', 'TypeScript', 'Node.js', 'Git', 'Github', 'GraphQL', 'MongoDB', 'Restful API', 'GraphQL', 'ChatGPT', 'v0.dev', 'AWS', 'Docker', 'S3', 'SSO', "CSS", "Tailwind CSS", '3rd-party integration'
 ]
 
 export default function About() {
@@ -36,7 +62,7 @@ export default function About() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 container mx-auto px-4 space-y-8 py-16">
+            <div className="relative z-10 container mx-auto px-4 space-y-8 pb-16 pt-8 lg:pt-12">
                 <motion.h1
                     className="text-4xl font-bold text-primary mb-8 text-center"
                     initial={{ opacity: 0, y: -20 }}
@@ -77,16 +103,23 @@ export default function About() {
                             transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                         >
                             <Card className='bg-transparent border-0' radius="none" shadow='none'>
-                                <h3 className="text-xl font-semibold">{edu.degree}</h3>
-                                <p className="text-gray-600">{edu.institution} | {edu.year}</p>
-                                <p className="text-gray-700 mb-2">{edu.description}</p>
-                                <Image
+                                <div className='flex items-center space-x-4'>
+                                    <div>
+                                        <Avatar src="/images/cadt_logo.jpg" className="h-24 w-24" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-semibold">{edu.degree}</h3>
+                                        <p className="text-gray-600">{edu.institution} | {edu.year}</p>
+                                        <p className="text-gray-700 mb-2">{edu.description}</p>
+                                    </div>
+                                </div>
+                                {/* <Image
                                     src={edu.certificate}
                                     alt={`${edu.degree} Certificate`}
                                     width={300}
                                     height={200}
-                                    className="w-full h-40 object-cover rounded-lg"
-                                />
+                                    className="w-full h-40 object-fit rounded-lg"
+                                /> */}
                             </Card>
                         </motion.div>
                     ))}
@@ -94,7 +127,6 @@ export default function About() {
 
                 {/* Experience */}
                 <motion.div
-                    // className="bg-white/90 rounded-lg shadow-lg p-6"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
@@ -116,13 +148,13 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                    <Card className='bg-transparent border-0' radius="none" shadow='none'>
+                    <Card className='bg-transparent border-0 pb-8' radius="none" shadow='none'>
                         <h2 className="text-2xl font-bold mb-4">Skills</h2>
                         <div className="flex flex-wrap gap-2">
                             {skills.map((skill) => (
-                                <span key={skill} className="bg-transparent pl-0 pr-4 font-medium">
+                                <Chip size="lg" key={skill} className="font-medium" color="primary" variant="solid" radius="sm">
                                     {skill}
-                                </span>
+                                </Chip>
                             ))}
                         </div>
                     </Card>

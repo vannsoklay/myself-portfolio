@@ -14,10 +14,11 @@ export default function Home() {
   const [socialName, setSocialName] = useState<string | null>(null);
   return (
     <>
-      <section className="relative container mx-auto px-6 min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center lg:p-6 py-24">
+      <section className="relative container mx-auto px-6 min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center lg:p-6 pb-20 pt-4">
         <motion.div initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}>
+          <div className="py-6">🏔️ 🌅 🎸 👨‍💻 🌊 🙂</div>
           <h1 className="lg:text-5xl text-2xl font-bold mb-4">
             HEY! I'm Soklay, <br />
             <span className="text-teal-600">Software Developer</span> <br />
@@ -26,7 +27,7 @@ export default function Home() {
           <p className="text-gray-600 mb-6 lg:text-lg text-sm">
             I believe in building software that not only solves complex problems but also empowers users with intuitive, seamless experiences. My passion for programming lies in crafting scalable solutions that bridge the gap between functionality and simplicity
           </p>
-          <div className="flex space-x-2 mb-6">
+          <div className="flex space-x-2 lg:mb-6 mb-0">
             <Button as={Link} href="/contact" variant="solid" color="primary" radius="full" className="px-6 font-semibold mr-4">
               Contact Me
             </Button>
@@ -45,13 +46,13 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative flex justify-end">
+          className="relative flex justify-end lg:mb-0 mb-4">
           <Image
             src="/images/p-1.jpg"
             alt="Soklay - Developer"
             width={400}
             height={400}
-            className="rounded-full"
+            className="lg:rounded-full"
           />
           <motion.div
             className="absolute top-0 right-0 w-4 h-4 bg-purple-500 rounded-full"

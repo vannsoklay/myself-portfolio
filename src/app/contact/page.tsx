@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button, Input, Textarea } from '@nextui-org/react'
+import { Icon } from '@iconify/react/dist/iconify.js'
+import toast from 'react-hot-toast'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,16 +22,41 @@ export default function Contact() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData)
-    // Reset form after submission
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    e.preventDefault();
+    const from = formData.email;
+    const to = "soklayvann5@gmail.com";
+    const subject = `I'm ${formData.name} ${formData.subject}`;
+    const text = formData.message;
+    const body = JSON.stringify({ from: from, to: to, subject: subject, text: text });
+
+    console.log("mail body", body);
+    
+    await fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ from: from, to: to, subject: subject, text: text }),
+    }).then((res: any) => {
+      if (res.status == 401) {
+        return toast.error("Error to send mail");
+      }
+      if (res.status == 500) {
+        return toast.error("Error to send mail");
+      }
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      toast.success("Send mail successfully");
+    }).catch((e) => {
+      toast.error(e.message);
+    });
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center lg:pb-10 pb-14 relative">
+    <div className="min-h-screen flex items-center justify-center lg:pb-10 pb-20 relative">
       {/* Background image with blur effect */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -41,7 +68,7 @@ export default function Contact() {
 
       {/* Content */}
       <motion.div
-        className="bg-background/80 backdrop-blur-sm p-8 rounded-xl max-w-md w-full relative z-10"
+        className="bg-background/80 backdrop-blur-sm p-8 mb-0.5 lg:mb-0 rounded-xl max-w-md w-full relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -53,9 +80,10 @@ export default function Contact() {
             <Input
               isRequired
               type="text"
+              name="name"
               className="max-w-full"
               placeholder="John Doe"
-              value={formData.name}
+              defaultValue={formData.name}
               onChange={handleChange}
               size="lg"
               variant="bordered"
@@ -67,9 +95,10 @@ export default function Contact() {
             <Input
               isRequired
               type="email"
+              name="email"
               className="max-w-full"
               placeholder="john@example.com"
-              value={formData.email}
+              defaultValue={formData.email}
               onChange={handleChange}
               required
               size="lg"
@@ -82,9 +111,10 @@ export default function Contact() {
             <Input
               isRequired
               type="text"
+              name="subject"
               className="max-w-full"
               placeholder="Project Inquiry"
-              value={formData.subject}
+              defaultValue={formData.subject}
               onChange={handleChange}
               required
               size="lg"
@@ -96,9 +126,10 @@ export default function Contact() {
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
             <Textarea
               isRequired
+              name="message"
               className="max-w-full"
               placeholder="Hello, I'm interested in discussing a potential project..."
-              value={formData.message}
+              defaultValue={formData.message}
               onChange={handleChange}
               required
               size="lg"
@@ -108,7 +139,7 @@ export default function Contact() {
           </div>
           <Button type="submit" className="w-full" variant="solid" color="primary" size="lg" radius="sm">
             Send Message
-            {/* <Send className="ml-2 h-4 w-4" /> */}
+            <Icon icon="lets-icons:send-fill" fontSize={28} />
           </Button>
         </form>
       </motion.div>

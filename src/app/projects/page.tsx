@@ -10,7 +10,7 @@ const projects = [
   {
     "image": "/images/riverbase.png",
     "title": "Riverbase",
-    "description": "Share your travel experiences through stunning videos and images, inspiring others to explore the world.",
+    "description": "Scalable e-commerce platform solution using Rust for high-performance API services and integrated it with Next.js for the client-side.",
     live: "https://riverbase.org",
     github: "",
     tags: ['Rust', 'Nextjs-14','GraphQL', 'Restful API', "Mongo-DB"]
@@ -34,7 +34,7 @@ const projects = [
   {
     "image": "/images/weteka.png",
     "title": "Weteka",
-    "description": "Share your travel experiences through stunning videos and images, inspiring others to explore the world.",
+    "description": "Collaborative platform solution with Rust, Nextjs-14, MongoDB GraphQL and TaiwindCSS.",
     live: "https://weteka.org",
     github: "",
     tags: ['Rust', 'GraphQL', 'Nextjs-14']
@@ -62,7 +62,7 @@ export default function Projects() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-16">
+      <div className="relative z-10 container mx-auto px-4 pb-16 pt-8 lg:pt-12">
         <motion.h1
           className="text-4xl font-bold text-primary mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
