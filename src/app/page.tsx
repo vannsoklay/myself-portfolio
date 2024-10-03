@@ -5,15 +5,16 @@ import { QrCode } from "@/components/QrCode";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Button, Image, useDisclosure } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { isOpen: isOpenContact, onOpen: onContactOpen, onOpenChange: onContactOpenChange } = useDisclosure();
-  const [socialName, setSocialName] = useState<string | null>(null)
+  const [socialName, setSocialName] = useState<string | null>(null);
   return (
     <>
-      <section className="relative container mx-auto px-6 min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center lg:p-0 py-24">
+      <section className="relative container mx-auto px-6 min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center lg:p-6 py-24">
         <motion.div initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}>
@@ -25,27 +26,18 @@ export default function Home() {
           <p className="text-gray-600 mb-6 lg:text-lg text-sm">
             I believe in building software that not only solves complex problems but also empowers users with intuitive, seamless experiences. My passion for programming lies in crafting scalable solutions that bridge the gap between functionality and simplicity
           </p>
-          <div className="flex space-x-4 mb-6">
-            <Button variant="solid" onPress={() => onContactOpen()} color="primary" radius="full" className="px-6 font-semibold">
+          <div className="flex space-x-2 mb-6">
+            <Button as={Link} href="/contact" variant="solid" color="primary" radius="full" className="px-6 font-semibold mr-4">
               Contact Me
             </Button>
-            <Button onPress={() => {
-              setSocialName("github")
-              onOpen()
-            }} isIconOnly radius="full" variant="flat" >
-              <Icon icon="entypo-social:github-with-circle" fontSize={24} style={{ color: "#24292e" }} />
+            <Button as={Link} href="https://github.com/vannsokla" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent" >
+              <Icon icon="fa-brands:github-square" fontSize={40} />
             </Button>
-            <Button onPress={() => {
-              setSocialName("instagram");
-              onOpen()
-            }} isIconOnly radius="full" variant="flat">
-              <Icon icon="entypo-social:instagram-with-circle" fontSize={24} style={{ color: "#FD1D1D" }} />
+            <Button as={Link} href="https://www.linkedin.com/in/vann-soklay-00a61a175/" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent">
+              <Icon icon="devicon:linkedin" fontSize={38} />
             </Button>
-            <Button onPress={() => {
-              setSocialName("facebook")
-              onOpen()
-            }} isIconOnly radius="full" variant="flat">
-              <Icon icon="entypo-social:facebook-with-circle" fontSize={24} style={{ color: "#4267B2" }} />
+            <Button as={Link} href="https://web.facebook.com/soklay512" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent">
+              <Icon icon="devicon:facebook" fontSize={38}/>
             </Button>
           </div>
         </motion.div>
