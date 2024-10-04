@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Avatar, Card, Chip, Image } from '@nextui-org/react'
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 const certificates = [
     { name: 'React Developer Certification', issuer: 'React Training', year: 2022, image: '/placeholder.svg?height=200&width=300' },
@@ -64,7 +65,7 @@ export default function About() {
             {/* Content */}
             <div className="relative z-10 container mx-auto px-4 space-y-8 pb-16 pt-8 lg:pt-12">
                 <motion.h1
-                    className="text-4xl font-bold text-primary mb-8 text-center"
+                    className="lg:text-3xl text-xl font-bold text-primary mb-8 text-center"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
@@ -72,11 +73,21 @@ export default function About() {
                     About Me
                 </motion.h1>
 
-                {/* Bio */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }} className='w-full text-center flex justify-center'>
+                    <Card className='bg-transparent border-0 p-0' radius="none" shadow='none'>
+                        <Image src='/images/certification-cs.jpeg' width={400} radius='none' />
+                    </Card>
+                </motion.div>
+
+                {/* Bio */}
+                {/* <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
+                    className="space-y-4"
                 >
                     <Card className='bg-transparent border-0' radius="none" shadow='none'>
                         <h2 className="text-2xl font-bold mb-4">Bio</h2>
@@ -84,7 +95,7 @@ export default function About() {
                             I believe in building software that not only solves complex problems but also empowers users with intuitive, seamless experiences. My passion for programming lies in crafting scalable solutions that bridge the gap between functionality and simplicity
                         </p>
                     </Card>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Skills and Education */}
                 <motion.div
@@ -92,8 +103,9 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
+                    className='w-full lg:text-center'
                 >
-                    <h2 className="text-2xl font-bold mb-4">Education</h2>
+                    <h2 className="text-2xl font-bold mb-4 flex lg:justify-center lg:items-center underline"> <Icon icon="twemoji:backpack" className='mr-4 hidden lg:block' /> Education <Icon icon="twemoji:backpack" className='ml-4' /></h2>
                     {education.map((edu, index) => (
                         <motion.div
                             key={index}
@@ -103,8 +115,8 @@ export default function About() {
                             transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                         >
                             <Card className='bg-transparent border-0' radius="none" shadow='none'>
-                                <div className='flex items-center space-x-4'>
-                                    <div>
+                                <div className='space-y-4'>
+                                    <div className='flex lg:justify-center'>
                                         <Avatar src="/images/cadt_logo.jpg" className="h-24 w-24" />
                                     </div>
                                     <div>
@@ -130,14 +142,15 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
+                    className='w-full lg:text-center'
                 >
                     <Card className='bg-transparent border-0' radius="none" shadow='none'>
-                        <h2 className="text-2xl font-bold mb-4">Experience</h2>
+                        <h2 className="text-2xl font-bold mb-4 flex lg:justify-center lg:items-center underline"><Icon icon="twemoji:beating-heart" className='mr-4 hidden lg:block'/> Experience <Icon icon="twemoji:beating-heart" className='ml-4' /></h2>
                         {experiences.map((exp, index) => (
                             <div key={index} className="mb-4">
                                 <h3 className="text-xl font-semibold">{exp.title}</h3>
                                 <p className="text-gray-600">{exp.company} | {exp.period}</p>
-                                <p className="text-gray-700">{exp.description}</p>
+                                <div className="text-gray-700 flex lg:justify-center"><p className='lg:w-6/12'>{exp.description}</p></div>
                             </div>
                         ))}
                     </Card>
@@ -147,10 +160,11 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
+                    className='w-full lg:text-center'
                 >
                     <Card className='bg-transparent border-0 pb-8' radius="none" shadow='none'>
-                        <h2 className="text-2xl font-bold mb-4">Skills</h2>
-                        <div className="flex flex-wrap gap-2">
+                        <h2 className="text-2xl font-bold mb-4 flex lg:justify-center lg:items-center underline"><Icon icon="twemoji:crossed-swords hidden lg:block" className='mr-4'/>Skills <Icon icon="twemoji:crossed-swords" className='ml-4' /></h2>
+                        <div className="flex flex-wrap lg:gap-4 gap-2 lg:justify-center">
                             {skills.map((skill) => (
                                 <Chip size="lg" key={skill} className="font-medium" color="primary" variant="solid" radius="sm">
                                     {skill}

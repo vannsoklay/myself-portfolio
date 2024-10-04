@@ -64,12 +64,12 @@ export default function Projects() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 pb-16 pt-8 lg:pt-12">
         <motion.h1
-          className="text-4xl font-bold text-primary mb-8 text-center"
+          className="lg:text-3xl text-xl font-bold text-primary mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          My Projects
+          Experience with Projects
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">

@@ -60,7 +60,7 @@ export default function Github() {
             {/* Content */}
             <div className="relative z-10 container mx-auto px-4 space-y-8 pb-16 pt-8 lg:pt-12">
                 <motion.h1
-                    className="text-4xl font-bold text-primary mb-8 text-center"
+                    className="lg:text-3xl text-xl font-bold text-primary mb-8 text-center"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
