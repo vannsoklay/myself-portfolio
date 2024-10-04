@@ -10,6 +10,7 @@ const navItems = [
   { name: 'Home', not_active_icon: "solar:home-2-broken", active_icon: "solar:home-2-bold", href: '/' },
   { name: 'About', not_active_icon: "solar:user-circle-linear", active_icon: "solar:user-circle-bold", href: '/about' },
   { name: 'Projects', not_active_icon: "solar:backpack-linear", active_icon: "solar:backpack-bold", href: '/projects' },
+  { name: 'GitHub', not_active_icon: "ri:github-line", active_icon: "ri:github-fill", href: '/github' },
   { name: 'Contact', not_active_icon: "solar:mailbox-linear", active_icon: "solar:mailbox-bold", href: '/contact' },
 ]
 

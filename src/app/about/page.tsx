@@ -32,7 +32,7 @@ const experiences = [
         technologies: ['Node.js', 'Rust', 'API Development', 'Graphql']
     },
     {
-        title: 'Intership Developer',
+        title: 'Internship Developer',
         company: 'Startup Company',
         period: '2020 - 2021',
         description: 'Developed on backend with laravel working on project Recruitment.',
@@ -42,11 +42,11 @@ const experiences = [
 
 
 const education = [
-    { degree: 'Bachelor of Science in Computer Science', institution: 'Tech University', year: '2019', description: 'Specialized in Computer Science', certificate: 'https://www.cadt.edu.kh/wp-content/uploads/2021/11/NIPTICT-National-Institute-Officially-Rebranded-to-Cambodia-Academy-of-Digital-Technology-CADT-4.jpg' },
+    { degree: 'Bachelor of Science in Computer Science', institution: 'Cambodia Academy of Digital Technology (CADT)', year: '2019', description: 'Specialized in Computer Science', certificate: 'https://www.cadt.edu.kh/wp-content/uploads/2021/11/NIPTICT-National-Institute-Officially-Rebranded-to-Cambodia-Academy-of-Digital-Technology-CADT-4.jpg' },
 ]
 
 const skills = [
-    'React', 'Next.js', 'TypeScript', 'Node.js', 'Git', 'Github', 'GraphQL', 'MongoDB', 'Restful API', 'GraphQL', 'ChatGPT', 'v0.dev', 'AWS', 'Docker', 'S3', 'SSO', "CSS", "Tailwind CSS", '3rd-party integration'
+    'React', 'Next.js', 'Javascript', 'TypeScript', 'Node.js', "SolidJS", "Python", 'Git', "HTML", "CSS", "Tailwind CSS", 'Github', 'GraphQL', 'MongoDB', 'Restful API', 'Python', "Auth JWT", 'GraphQL', 'ChatGPT', 'v0.dev', 'AWS', 'Docker', 'S3', 'SSO', '3rd-party integration', "Problem-solving", "Self-motivation", "Time Management", "Creativity", "Critical Thinking"
 ]
 
 export default function About() {
