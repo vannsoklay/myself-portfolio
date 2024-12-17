@@ -31,7 +31,7 @@ export default function Home() {
             <Button as={Link} href="/contact" variant="solid" color="primary" radius="full" className="px-6 font-semibold mr-4">
               Contact Me
             </Button>
-            <Button as={Link} href="https://github.com/vannsokla" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent" >
+            <Button as={Link} href="https://github.com/vannsoklay" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent" >
               <Icon icon="fa-brands:github-square" fontSize={40} />
             </Button>
             <Button as={Link} href="https://www.linkedin.com/in/vann-soklay-00a61a175/" target="_blank" rel="noopener noreferrer" isIconOnly radius="full" className="bg-transparent">
