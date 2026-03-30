@@ -18,9 +18,34 @@ const certificates = [
 
 const experiences = [
     {
+        title: 'Backend Developer',
+        company: 'AIBODIA Co., Ltd.',
+        period: 'Dec 25, 2025 – Present',
+        description: 'AiBodia is a leading technology company dedicated to empowering businesses with innovative solutions.',
+        highlights: [
+            'Part of a 5-member team building a Chat SDK integrated with core services to provide real-time messaging.',
+            'Developed WebSocket-based real-time chat functionality for low-latency communication.',
+            'Implemented event-driven messaging with RabbitMQ for reliable asynchronous processing.',
+            'Built RESTful APIs and secure authentication flows for third-party and internal service integration.',
+            'Optimized database access and message persistence using MongoDB.'
+        ],
+        technologies: ['Node.js', 'WebSocket', 'RabbitMQ', 'MongoDB', 'REST API', 'Authentication']
+    },
+    {
+        title: 'Backend Developer',
+        company: 'Serey.IO',
+        period: 'Jan 2025 – Dec 2025',
+        description: 'Developed a blockchain-integrated social media platform, enabling secure, decentralized content sharing.',
+        highlights: [
+            'Contributed to API design, backend services, and performance optimization.',
+            'Built full-stack solutions including frontend-backend integration and secure data management.'
+        ],
+        technologies: ['Blockchain', 'API Design', 'Backend', 'Performance', 'Full Stack']
+    },
+    {
         title: 'Full Stack Developer',
         company: 'KOOMPI, Co., ltd.',
-        period: '2023 - Present',
+        period: '2023 - 2025',
         description: 'Developed the backend using Rust for high-performance API services and integrated it with Next.js for the client-side. Focused on optimizing server-side rendering and API communication.',
         detail: 'Riverbase is a scalable e-commerce platform designed to offer a comprehensive online shopping experience for both customers and merchants. It provides robust functionalities to handle product listings, orders, payments, and inventory management. The platform is built to support various features tailored for smooth, secure, and efficient transactions, and integrates with third-party services to expand its capabilities',
         technologies: ['Rust', 'Next.js', 'Restful API', 'MongoDB', 'Graphql', 'SSO DID']
@@ -147,32 +172,52 @@ export default function About() {
                     <Card className='bg-transparent border-0' radius="none" shadow='none'>
                         <h2 className="text-2xl font-bold mb-4 flex lg:justify-center lg:items-center underline"><Icon icon="twemoji:beating-heart" className='mr-4 hidden lg:block'/> Experience <Icon icon="twemoji:beating-heart" className='ml-4' /></h2>
                         {experiences.map((exp, index) => (
-                            <div key={index} className="mb-4">
-                                <h3 className="text-xl font-semibold">{exp.title}</h3>
-                                <p className="text-gray-600">{exp.company} | {exp.period}</p>
-                                <div className="text-gray-700 flex lg:justify-center"><p className='lg:w-6/12'>{exp.description}</p></div>
-                            </div>
+                            <motion.div
+                                key={index}
+                                className="relative mb-12 bg-gradient-to-br from-white/90 via-gray-50/80 to-gray-100/80 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-gray-900/80 rounded-2xl shadow-xl p-8 text-left border border-gray-200 dark:border-gray-800 hover:shadow-2xl transition-shadow duration-300 overflow-hidden"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+                                {/* Decorative blurred background circle */}
+                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl z-0" />
+                                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 relative z-10">
+                                    <div className="flex items-center gap-4 mb-2 md:mb-0">
+                                        {/* Company logo (if available) */}
+                                        {exp.company === 'AIBODIA Co., Ltd.' && (
+                                            <img src="/images/aibodia-logo.png" alt="AIBODIA Logo" className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white object-contain" />
+                                        )}
+                                        {exp.company === 'Serey.IO' && (
+                                            <img src="/images/serey-logo.png" alt="Serey.IO Logo" className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white object-contain" />
+                                        )}
+                                        {exp.company === 'KOOMPI, Co., ltd.' && (
+                                            <img src="/images/koompi-logo.png" alt="KOOMPI Logo" className="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700 bg-white object-contain" />
+                                        )}
+                                        <div>
+                                            <h3 className="text-lg font-bold text-primary mb-1">{exp.title} <span className="text-gray-600 font-normal">@ {exp.company}</span></h3>
+                                            <p className="text-gray-500 text-sm mb-1">{exp.period}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-700 dark:text-gray-200 mb-2 leading-relaxed">{exp.description}</p>
+                                {exp.highlights && (
+                                    <ul className="list-disc pl-5 mb-2 text-gray-700 dark:text-gray-300 space-y-1">
+                                        {exp.highlights.map((item, i) => (
+                                            <li key={i}>{item}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                                <div className="flex flex-wrap gap-2 mt-2">
+                                    {exp.technologies.map((tech, i) => (
+                                        <Chip key={i} color="primary" variant="flat" size="sm">{tech}</Chip>
+                                    ))}
+                                </div>
+                            </motion.div>
                         ))}
                     </Card>
                 </motion.div>
-                {/* Skill */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className='w-full lg:text-center'
-                >
-                    <Card className='bg-transparent border-0 pb-8' radius="none" shadow='none'>
-                        <h2 className="text-2xl font-bold mb-4 flex lg:justify-center lg:items-center underline"><Icon icon="twemoji:crossed-swords hidden lg:block" className='mr-4'/>Skills <Icon icon="twemoji:crossed-swords" className='ml-4' /></h2>
-                        <div className="flex flex-wrap lg:gap-4 gap-2 lg:justify-center">
-                            {skills.map((skill) => (
-                                <Chip size="lg" key={skill} className="font-medium" color="primary" variant="solid" radius="sm">
-                                    {skill}
-                                </Chip>
-                            ))}
-                        </div>
-                    </Card>
-                </motion.div>
+
 
                 {/* Certificates */}
                 {/* <motion.div
